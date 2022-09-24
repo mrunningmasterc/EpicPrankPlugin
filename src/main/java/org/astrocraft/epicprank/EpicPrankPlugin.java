@@ -31,16 +31,63 @@ public final class EpicPrankPlugin extends SimplePlugin {
 		isAlive = false;
 
 		/**
-		 * Storing numbers
+		 * Comparators
+		 * == equals (for numbers)
+		 * != not equal
+		 * > greater than
+		 * < less than
+		 * >= greater than equal to
+		 * <= less than equal to
+		 *
+		 * Java Conditions
+		 * ? if (true)
+		 * else if (above condition is false)
+		 * : else (false)
+		 *
+		 * Logical Operators
+		 * && and
+		 * || or
+		 * ! not
 		 */
-		int firstnumber = 15;
+		int comparison = 5;
+		int comparison2 = 5;
+		boolean comparator = comparison == comparison2;
+
+		if (5 > 3 || comparator && 10 == 10)
+			System.out.println("It is true");
+		else if (4 >= 5)
+			System.out.println("Above was false");
+		else
+			System.out.println("It is false");
+
+		/**
+		 * Storing numbers
+		 * + Add
+		 * - Subtract
+		 * * Multiply
+		 * / Divide
+		 * % Modulus
+		 * ++ Increment +1
+		 * -- Decrement -1
+		 *
+		 * Assignment Operators Shortcuts
+		 * += Add
+		 * -= Subtract
+		 * *= Multiply
+		 * /= Divide
+		 * %= Modulus
+		 */
+		int firstnumber = 15; //
+		firstnumber += 3; //Assignment Operators
+
 		int secondnumber = 10;
 		double result = (firstnumber / secondnumber) / 3.5;
 
 		/**
 		 * sout (acronym for system out print)
 		 */
-		System.out.println(result);
+		System.out.println(++result); //Operators- Increment +1
+		System.out.println("First Number " + ++firstnumber);
 		System.out.println("Knock, Knock! " + (2 * 12) + " Who's There");
 		System.out.println("Knock, Knock! " + (1 + 1) + " Who's There");
 
@@ -64,6 +111,13 @@ public final class EpicPrankPlugin extends SimplePlugin {
 			event.getRightClicked().setGravity(false);
 		if (event.getRightClicked().getType() == EntityType.PIG)
 			event.getRightClicked().setVisualFire(true);
+		if (event.getRightClicked().getType() == EntityType.SHEEP) {
+			event.getRightClicked().setVisualFire(true);
+			event.getRightClicked().setCustomName("Fireball");
+		}
+		if (event.getRightClicked().getType() == EntityType.SHEEP && event.getRightClicked().isInWater())
+			event.getRightClicked().setVisualFire(false);
+
 		//if (event.getRightClicked().getType() == EntityType.COW)
 		//	event.getRightClicked().getWorld().createExplosion(event.getRightClicked().getLocation(), 5);
 		//if (event.getRightClicked().getType() == EntityType.ZOMBIE)
