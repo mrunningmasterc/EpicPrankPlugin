@@ -1,9 +1,11 @@
 package org.astrocraft.epicprank;
 
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.mineacademy.fo.plugin.SimplePlugin;
+import org.mineacademy.fo.remain.Remain;
 
 /**
  * PluginTemplate is a simple template you can use every time you make
@@ -60,6 +62,29 @@ public final class EpicPrankPlugin extends SimplePlugin {
 		else
 			System.out.println("It is false");
 
+		/**
+		 * Loops
+		 * Do
+		 * While
+		 * For ;
+		 * For Each :
+		 */
+		int loop = 10;
+		do {
+			System.out.println("Looping: " + loop);
+		} while (loop++ < 20);
+
+		for (int loop1 = 1; loop1 < 11; loop1++) {
+			System.out.println("Looping 1: " + loop1);
+		}
+		int[] playerIds = new int[]{1, 2, 3, 4};
+
+		for (int playerId : playerIds) {
+			System.out.println("ID: " + playerId);
+		}
+		for (Player player : Remain.getOnlinePlayers()) {
+			player.giveExpLevels(100);
+		}
 		/**
 		 * Storing numbers
 		 * + Add
