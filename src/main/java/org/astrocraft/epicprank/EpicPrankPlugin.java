@@ -1,10 +1,13 @@
 package org.astrocraft.epicprank;
 
+import org.bukkit.block.Block;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.mineacademy.fo.plugin.SimplePlugin;
+import org.mineacademy.fo.remain.CompMaterial;
 import org.mineacademy.fo.remain.Remain;
 
 /**
@@ -136,6 +139,7 @@ public final class EpicPrankPlugin extends SimplePlugin {
 			event.getRightClicked().setGravity(false);
 		if (event.getRightClicked().getType() == EntityType.PIG)
 			event.getRightClicked().setVisualFire(true);
+
 		if (event.getRightClicked().getType() == EntityType.SHEEP) {
 			event.getRightClicked().setVisualFire(true);
 			event.getRightClicked().setCustomName("Fireball");
@@ -159,5 +163,19 @@ public final class EpicPrankPlugin extends SimplePlugin {
 		//	event.getRightClicked().getWorld().createExplosion(event.getRightClicked().getLocation(), 15);
 		//if (event.getRightClicked().getType() == EntityType.SPIDER)
 		//	event.getRightClicked().getWorld().createExplosion(event.getRightClicked().getLocation(), 15);
+	}
+
+	@EventHandler
+	public void onRightClickAnything(PlayerInteractEvent event) {
+		System.out.println("We Started Handling Click Event!");
+
+		if (event.getClickedBlock() != null && event.getClickedBlock().getType() == CompMaterial.GRASS_BLOCK.getMaterial()) {
+			handleClickingGrass(event.getClickedBlock(), event.getPlayer());
+		}
+		System.out.println("... and we're done!");
+	}
+
+	void handleClickingGrass(Block block, Player player) {
+		block.setType(CompMaterial.DIAMOND_BLOCK.getMaterial());
 	}
 }
